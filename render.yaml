@@ -5,8 +5,10 @@ services:
     buildCommand: |
       echo "Installing dependencies..."
       npm run install-all
+      echo "Rebuilding client dependencies..."
+      cd client && npm rebuild && npm install vite --save-dev
       echo "Building client..."
-      cd client && npm rebuild && npm run build
+      cd client && npm run build
       echo "Build complete!"
     startCommand: npm start
     envVars:
