@@ -2,16 +2,14 @@ services:
   - type: web
     name: carbon-footprint-tracker
     runtime: node
-    buildCommand: npm run render-build
+    buildCommand: |
+      echo "Installing dependencies..."
+      npm run install-all
+      echo "Building client..."
+      cd client && npm rebuild && npm run build
+      echo "Build complete!"
     startCommand: npm start
     envVars:
       - key: NODE_ENV
         value: production
-      - key: PG_CONNECTION_STRING
-        value: postgresql://prithvi_db_uslp_user:oTPfTSmcjnmPp0kiw3Bbd8Mbs0UgXw4W@dpg-d167ta6mcj7s73bdea60-a.oregon-postgres.render.com/prithvi_db_uslp
-      - key: SESSION_SECRET
-        value: 30056707a4c81cab5c0dfe4f56b96822406fddeb1b1d0c1d5b025a66fa254301
-      - key: JWT_SECRET
-        value: 30056707a4c81cab5c0dfe4f56b96822406fddeb1b1d0c1d5b025a66fa254301
     healthCheckPath: /api/health
-    autoDeploy: true
