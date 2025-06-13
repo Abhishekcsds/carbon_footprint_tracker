@@ -4,7 +4,8 @@
     "version": "0.0.0",
     "scripts": {
       "dev": "vite",
-      "build": "vite build",
+       "build": "cd client && npm install && npm run build",
+  "install-all": "cd server && npm install && cd ../client && npm install",
       "preview": "vite preview"
     },
     "dependencies": {
