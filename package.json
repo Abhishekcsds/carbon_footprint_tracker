@@ -2,12 +2,12 @@
     "name": "carbon-footprint-tracker",
     "version": "1.0.0",
     "scripts": {
-      "install-server": "cd server && npm install --omit=optional --legacy-peer-deps",
-      "install-client": "cd client && npm install --omit=optional --legacy-peer-deps",
+      "install-server": "cd server && npm install --omit=optional",
+      "install-client": "cd client && npm install --omit=optional",
       "install-all": "npm run install-server && npm run install-client",
-      "build-client": "cd client && npm run build",
+      "build": "cd client && npm run build",
       "start": "cd server && node server.js",
-      "render-build": "npm run install-all && npm run build-client",
+      "render-build": "npm run install-all && npm run build",
       "dev": "concurrently \"cd server && npm run dev\" \"cd client && npm run dev\""
     },
     "dependencies": {
